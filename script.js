@@ -19,7 +19,7 @@ const app = Vue.createApp({
 	data() {
 		return {
             newTask:'', 
-             
+
             taskArray: [
                 {
                     text:'Smadonnare sull\' esercizio che probabilmente non riuscirai a fare',
@@ -36,7 +36,16 @@ const app = Vue.createApp({
             ]    
 		}        
 	},
-    
+    methods: {
+        // Add Task to array
+        addTask(){
+        this.taskArray.push({
+                text: this.newTask,
+                done:false,
+            });
+            this.newTask='';
+        }
+    }
 });
 
 app.mount('#app');
